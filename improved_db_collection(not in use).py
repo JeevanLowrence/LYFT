@@ -1,9 +1,6 @@
-#!/usr/bin/env python3
 """
-collector_no_api.py
-No API keys, no rate limits, no nonsense.
-Pulls aircraft images from public sources that don't block scraping (yet).
-Works well enough for 20–50 high-quality photos per type without getting banned.
+REDACTED - USED A DIFFERENT SCRIPT
+
 """
 
 import os
@@ -23,7 +20,7 @@ try:
     from PIL import Image
     import imagehash
     HASH_AVAILABLE = True
-except ImportError:  # people forget to pip install imagehash all the time
+except ImportError:  
     HASH_AVAILABLE = False
 
 # ------------------------------------------------------------------
