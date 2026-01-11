@@ -1,0 +1,31 @@
+aircraft:
+  name: Gripen
+  role: Multirole fighter
+  country: Sweden
+  introduction_year: 1996
+performance:
+  max_speed: null
+  combat_range: null
+  service_ceiling_m: null
+capabilities:
+  stealth: true
+  bvr_combat: true
+  multirole: true
+  strike: true
+  electronic_warfare: false
+sensors:
+  radar: true
+  type: null
+  eo_ir: true
+  datalink: true
+armament:
+  air_to_air:
+  - name: null
+  air_to_ground:
+  - name: null
+  internal_bay: true
+threat_assessment:
+  level: Low
+  rationale: null
+summary:
+  short_capability_summary: null

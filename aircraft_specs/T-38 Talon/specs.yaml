@@ -1,0 +1,32 @@
+aircraft:
+  name: Northrop T-38 Talon
+  role: two-seat, twinjet supersonic jet trainer
+  country: United States
+  introduction_year: 1961
+performance:
+  max_speed: null
+  combat_range: null
+  service_ceiling_m: null
+capabilities:
+  stealth: false
+  bvr_combat: false
+  multirole: false
+  strike: false
+  electronic_warfare: false
+sensors:
+  radar:
+    present: true
+    type: null
+  eo_ir: false
+  datalink: false
+armament:
+  air_to_air:
+  - null
+  air_to_ground:
+  - null
+  internal_bay: false
+threat_assessment:
+  level: Low
+  rationale: null
+summary:
+  short_capability_summary: Two-seat, twinjet supersonic jet trainer

@@ -1,0 +1,35 @@
+aircraft:
+  name: F-5
+  role: Fighter
+  country: USA
+  introduction_year: 1959
+performance:
+  max_speed:
+    raw: Mach 1.8
+    kph: 2205
+  combat_range:
+    raw: 483 km
+    km: 483
+  service_ceiling_m: 15,000
+capabilities:
+  stealth: false
+  bvr_combat: true
+  multirole: true
+  strike: true
+  electronic_warfare: false
+sensors:
+  radar: true
+  type: AN/APQ-46
+  eo_ir: null
+  datalink: null
+armament:
+  air_to_air:
+  - AIM-9 Sidewinder
+  air_to_ground:
+  - Mk 82 bomb
+  internal_bay: false
+threat_assessment:
+  level: Medium
+  rationale: null
+summary:
+  short_capability_summary: Multirole fighter with ground attack capabilities

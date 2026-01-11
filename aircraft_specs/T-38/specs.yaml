@@ -1,0 +1,34 @@
+aircraft:
+  name: T-38 Talon
+  role: Trainer
+  country: United States
+  introduction_year: 1955
+performance:
+  max_speed:
+    raw: Mach 1.15
+    kph: 1409
+  combat_range:
+    raw: 930 miles (1,500 km)
+    km: 1500
+  service_ceiling_m: 48,000 feet
+capabilities:
+  stealth: false
+  bvr_combat: false
+  multirole: false
+  strike: false
+  electronic_warfare: false
+sensors:
+  radar:
+    present: true
+    type: Pulse Doppler
+  eo_ir: false
+  datalink: null
+armament:
+  air_to_air: []
+  air_to_ground: []
+  internal_bay: null
+threat_assessment:
+  level: Low
+  rationale: null
+summary:
+  short_capability_summary: Supersonic jet trainer

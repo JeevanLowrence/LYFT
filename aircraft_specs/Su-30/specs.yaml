@@ -1,0 +1,32 @@
+aircraft:
+  name: Su-30
+  role: Multirole fighter
+  country: Soviet Union Russia
+  introduction_year: 1992
+performance:
+  max_speed: null
+  combat_range: null
+  service_ceiling_m: null
+capabilities:
+  stealth: false
+  bvr_combat: true
+  multirole: true
+  strike: true
+  electronic_warfare: false
+sensors:
+  radar:
+    present: true
+    type: Sukhoi Su-30MKI Sukhoi Su-30MKK Sukhoi Su-30MKM Sukhoi Su-30MKA
+  eo_ir: null
+  datalink: null
+armament:
+  air_to_air:
+  - Sukhoi Su-30MKI Sukhoi Su-30MKK Sukhoi Su-30MKM Sukhoi Su-30MKA
+  air_to_ground:
+  - Sukhoi Su-30MKI Sukhoi Su-30MKK Sukhoi Su-30MKM Sukhoi Su-30MKA
+  internal_bay: true
+threat_assessment:
+  level: Low
+  rationale: null
+summary:
+  short_capability_summary: Multirole fighter

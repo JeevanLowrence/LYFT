@@ -1,0 +1,32 @@
+aircraft:
+  name: Reaper
+  role: Unmanned combat aerial vehicle
+  country: United States
+  introduction_year: 2007
+performance:
+  max_speed: null
+  combat_range: null
+  service_ceiling_m: null
+capabilities:
+  stealth: false
+  bvr_combat: true
+  multirole: true
+  strike: true
+  electronic_warfare: false
+sensors:
+  radar:
+    present: true
+    type: null
+  eo_ir: true
+  datalink: true
+armament:
+  air_to_air:
+  - null
+  air_to_ground:
+  - null
+  internal_bay: true
+threat_assessment:
+  level: Low
+  rationale: null
+summary:
+  short_capability_summary: null

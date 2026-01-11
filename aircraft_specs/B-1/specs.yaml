@@ -1,0 +1,36 @@
+aircraft:
+  name: B-1 Lancer
+  role: Bomber
+  country: United States
+  introduction_year: 1981
+performance:
+  max_speed:
+    raw: Mach 0.92
+    kph: 1127
+  combat_range:
+    raw: 5,280 km
+    km: 5280
+  service_ceiling_m: 22,800
+capabilities:
+  stealth: false
+  bvr_combat: true
+  multirole: true
+  strike: true
+  electronic_warfare: false
+sensors:
+  radar: true
+  type: APQ-113
+  eo_ir: null
+  datalink: true
+armament:
+  air_to_air:
+  - AIM-9 Sidewinder
+  air_to_ground:
+  - Mk 82 bomb
+  - Mk 84 bomb
+  internal_bay: true
+threat_assessment:
+  level: Medium
+  rationale: null
+summary:
+  short_capability_summary: Multirole bomber with advanced sensors and armament

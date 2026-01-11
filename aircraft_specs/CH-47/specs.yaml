@@ -1,0 +1,30 @@
+aircraft:
+  name: Boeing CH-47 Chinook
+  role: Transport helicopter
+  country: United States
+  introduction_year: 1962
+performance:
+  max_speed: null
+  combat_range: null
+  service_ceiling_m: null
+capabilities:
+  stealth: false
+  bvr_combat: false
+  multirole: true
+  strike: false
+  electronic_warfare: false
+sensors:
+  radar:
+    present: true
+    type: null
+  eo_ir: false
+  datalink: false
+armament:
+  air_to_air: []
+  air_to_ground: []
+  internal_bay: true
+threat_assessment:
+  level: Low
+  rationale: null
+summary:
+  short_capability_summary: null

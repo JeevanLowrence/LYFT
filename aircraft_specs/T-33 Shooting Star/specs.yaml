@@ -1,0 +1,32 @@
+aircraft:
+  name: Lockheed T-33 Shooting Star
+  role: Training aircraft
+  country: America
+  introduction_year: 1948
+performance:
+  max_speed: null
+  combat_range: null
+  service_ceiling_m: null
+capabilities:
+  stealth: false
+  bvr_combat: false
+  multirole: true
+  strike: false
+  electronic_warfare: false
+sensors:
+  radar:
+    present: true
+    type: null
+  eo_ir: null
+  datalink: null
+armament:
+  air_to_air:
+  - name: null
+  air_to_ground:
+  - name: null
+  internal_bay: true
+threat_assessment:
+  level: Low
+  rationale: null
+summary:
+  short_capability_summary: null

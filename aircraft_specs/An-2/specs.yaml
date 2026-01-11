@@ -1,0 +1,32 @@
+aircraft:
+  name: Antonov An-2
+  role: Utility/agricultural aircraft, military transport aircraft
+  country: Soviet/Russian
+  introduction_year: 1947
+performance:
+  max_speed: null
+  combat_range: null
+  service_ceiling_m: null
+capabilities:
+  stealth: false
+  bvr_combat: false
+  multirole: true
+  strike: false
+  electronic_warfare: false
+sensors:
+  radar:
+    present: false
+    type: null
+  eo_ir: false
+  datalink: false
+armament:
+  air_to_air:
+  - null
+  air_to_ground:
+  - null
+  internal_bay: false
+threat_assessment:
+  level: Low
+  rationale: null
+summary:
+  short_capability_summary: Utility/agricultural aircraft, military transport aircraft

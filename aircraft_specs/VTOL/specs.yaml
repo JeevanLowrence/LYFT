@@ -1,0 +1,36 @@
+aircraft:
+  name: F-35 Lightning II
+  role: Multirole Fighter
+  country: United States
+  introduction_year: 2006
+performance:
+  max_speed:
+    raw: Mach 1.8
+    kph: 2205
+  combat_range:
+    raw: 930 miles (1500 km)
+    km: 1500
+  service_ceiling_m: 60,000
+capabilities:
+  stealth: true
+  bvr_combat: true
+  multirole: true
+  strike: true
+  electronic_warfare: false
+sensors:
+  radar: true
+  type: AESA (Active Electronically Scanned Array)
+  eo_ir: true
+  datalink: true
+armament:
+  air_to_air:
+  - AIM-9X Sidewinder
+  air_to_ground:
+  - GBU-31 JDAM
+  internal_bay: false
+threat_assessment:
+  level: High
+  rationale: null
+summary:
+  short_capability_summary: Multirole fighter with advanced stealth capabilities and
+    AESA radar.

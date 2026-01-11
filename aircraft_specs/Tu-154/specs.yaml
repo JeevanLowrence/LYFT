@@ -1,0 +1,32 @@
+aircraft:
+  name: Tupolev Tu-154
+  role: Narrow-body jet airliner
+  country: Russian Federation and Soviet Union
+  introduction_year: 1972
+performance:
+  max_speed: null
+  combat_range: null
+  service_ceiling_m: null
+capabilities:
+  stealth: false
+  bvr_combat: false
+  multirole: false
+  strike: false
+  electronic_warfare: false
+sensors:
+  radar:
+    present: true
+    type: null
+  eo_ir: false
+  datalink: false
+armament:
+  air_to_air:
+  - name: null
+  air_to_ground:
+  - name: null
+  internal_bay: false
+threat_assessment:
+  level: Low
+  rationale: null
+summary:
+  short_capability_summary: null

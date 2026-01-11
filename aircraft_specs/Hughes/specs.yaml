@@ -1,0 +1,36 @@
+aircraft:
+  name: AH-64 Apache
+  role: Attack Helicopter
+  country: United States
+  introduction_year: 1975
+performance:
+  max_speed:
+    raw: 352 km/h
+    kph: 352
+  combat_range:
+    raw: 2 hours
+  service_ceiling_m: 24,400
+capabilities:
+  stealth: false
+  bvr_combat: true
+  multirole: true
+  strike: true
+  electronic_warfare: false
+sensors:
+  radar:
+    present: true
+    type: Radar Antenna Array
+  eo_ir: true
+  datalink: true
+armament:
+  air_to_air:
+  - AIM-92 Stinger
+  air_to_ground:
+  - AGM-114 Hellfire
+  internal_bay: false
+threat_assessment:
+  level: Medium
+  rationale: null
+summary:
+  short_capability_summary: Multi-role attack helicopter with advanced sensors and
+    weapons capabilities.

@@ -1,0 +1,32 @@
+aircraft:
+  name: Armstrong Whitworth Whitley
+  role: General purpose military
+  country: United Kingdom
+  introduction_year: 1934
+performance:
+  max_speed: null
+  combat_range: null
+  service_ceiling_m: null
+capabilities:
+  stealth: false
+  bvr_combat: false
+  multirole: true
+  strike: true
+  electronic_warfare: false
+sensors:
+  radar:
+    present: true
+    type: null
+  eo_ir: false
+  datalink: false
+armament:
+  air_to_air:
+  - name: null
+  air_to_ground:
+  - name: null
+  internal_bay: false
+threat_assessment:
+  level: Low
+  rationale: null
+summary:
+  short_capability_summary: General-purpose military aircraft.

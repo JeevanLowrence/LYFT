@@ -1,0 +1,32 @@
+aircraft:
+  name: F-22 Raptor
+  role: Air superiority fighter
+  country: United States
+  introduction_year: 2005
+performance:
+  max_speed: null
+  combat_range: null
+  service_ceiling_m: null
+capabilities:
+  stealth: true
+  bvr_combat: true
+  multirole: false
+  strike: true
+  electronic_warfare: false
+sensors:
+  radar:
+    present: true
+    type: null
+  eo_ir: false
+  datalink: false
+armament:
+  air_to_air:
+  - AIM-120 AMRAAM
+  air_to_ground:
+  - GBU-31 JDAM
+  internal_bay: true
+threat_assessment:
+  level: Low
+  rationale: null
+summary:
+  short_capability_summary: Air superiority fighter with stealth capabilities
