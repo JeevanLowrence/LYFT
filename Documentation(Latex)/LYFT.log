@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.3.5)  21 JAN 2026 21:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.3.5)  21 JAN 2026 21:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -383,9 +383,9 @@ Overfull \hbox (10.09885pt too wide) in paragraph at lines 402--404
 
 [12] [13]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 476.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 478.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 476.
+(Font)              <10.95> on input line 478.
  [14] (LYFT.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -395,17 +395,17 @@ Package rerunfilecheck Info: File `LYFT.out' has not changed.
 (rerunfilecheck)             Checksum: BAFB9DD2AD569E865A7719EBEDD12C59;84.
  ) 
 Here is how much of TeX's memory you used:
- 12750 strings out of 474486
- 202631 string characters out of 5743756
- 2079542 words of memory out of 5000000
+ 12751 strings out of 474486
+ 202642 string characters out of 5743756
+ 2023542 words of memory out of 5000000
  34844 multiletter control sequences out of 15000+600000
  564570 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,6n,79p,572b,1940s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\fkshi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on LYFT.pdf (14 pages, 1947467 bytes).
+Output written on LYFT.pdf (14 pages, 1948006 bytes).
 PDF statistics:
- 197 PDF objects out of 1000 (max. 8388607)
- 76 named destinations out of 1000 (max. 500000)
+ 198 PDF objects out of 1000 (max. 8388607)
+ 77 named destinations out of 1000 (max. 500000)
  34 words of extra memory for PDF output out of 10000 (max. 10000000)
 
