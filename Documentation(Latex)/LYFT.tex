@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{caption}
+\usepackage{xcolor}
 \usepackage{enumitem}
 
 \lstset{
@@ -43,6 +44,16 @@ Building an End-to-End Aircraft Identification and Decision Support Pipeline}
 This project started with a simple question:
 
 \emph{{How can we improve aircraft identification:} making it faster, more accurate, and enabling a more objective threat assessment—under operational time pressure??}
+\\
+
+\textbf{The Operational Setting: }
+Naval officers often have only seconds to respond following a radar return or visual confirmation, during which an aircraft must be identified and its threat potential assessed.
+In such environments, ground truth is rarely available in real time, and labels must be curated from incomplete, noisy, and evolving information sources.
+Misclassification carries asymmetric risks: failing to identify a genuine threat (\textit{false negative}) may lead to dangerous complacency, while 
+incorrectly classifying a friendly or neutral aircraft as hostile (\textit{false positive}) can result in catastrophic escalation or fratricide.
+As a result, the system prioritizes timely, explainable, and uncertainty-aware outputs over absolute classification certainty.
+
+\vspace{4em}
 
 Inspired by how naval and air combat information officers operate in real-world settings, the goal evolved into building a system that does more than just classify an image. Instead, it aims to:
 
@@ -209,9 +220,10 @@ Despite achieving high training accuracy early, validation accuracy plateaued ar
     \label{fig:output}
 \end{figure}
 
-Note that this is the result for an F-22 raptor which got classified as an F-15 which is a different aircraft but since they're from the same family we'll take this as a win. 
-Not to mention the fact that we only achieved 41\% accuracy with the model. 
-We conclude that model performance cannot be improved further under the current conditions, as we are fundamentally limited by the small size and narrow scope of the available training data.
+In the evaluated example, an F-22 Raptor was classified as an F-15. While this constitutes a misclassification at the specific platform level, both aircraft belong to the same operational family of air-superiority fighters and share similar roles, performance envelopes, and threat characteristics. From an operational assessment perspective, this represents a partially correct identification rather than a complete failure.
+Overall classification accuracy peaked at approximately 41\%. Despite extensive architectural experimentation and training refinements, further performance gains could not be achieved under the current constraints. This limitation is attributed primarily to the small size, class imbalance, and narrow visual diversity of the available training dataset, rather than deficiencies in model capacity or optimization strategy.
+Consequently, model performance appears to be data-limited rather than architecture-limited, indicating that meaningful improvements would require substantially broader and more representative training data rather than further model tuning. As such, the reported accuracy should be interpreted as a lower bound on achievable performance given the current dataset rather than an upper bound on the approach itself.
+
 
 \section*{Top-K Classification Instead of Top-1}
 
@@ -233,14 +245,20 @@ Only structurally valid predictions are accepted, preventing silent failures fro
 
 \section*{Aircraft Specification Database}
 
-To decouple vision from domain knowledge, aircraft specifications were extracted and stored separately.
+To decouple visual perception from domain knowledge, aircraft specifications are extracted, normalized, and stored independently of the vision model.
 
-For each aircraft:
+For each aircraft class:
 \begin{itemize}
-    \item A dedicated YAML file is generated
-    \item Units are normalized numerically
-    \item Capabilities are expressed as boolean flags
+    \item A dedicated YAML specification file is generated and stored separately from the image dataset
+    \item All quantitative attributes (e.g., speed, range, ceiling) are normalized into consistent numerical units
+    \item Operational capabilities (e.g., beyond-visual-range combat, strike capability, electronic warfare) are represented as explicit boolean flags
+    \item Missing or unavailable specifications are handled explicitly and preserved as unknown values rather than inferred
+    \item Low-confidence visual classifications propagate uncertainty into downstream reasoning rather than forcing deterministic conclusions
 \end{itemize}
+
+This separation allows the system to reason over incomplete or uncertain information while preventing visual misclassifications from directly biasing domain-level threat assessments.
+This design enables modular updates to the knowledge base without requiring retraining of the visual classifier.
+
 
 % Example capability flags include:
 % \begin{itemize}
@@ -267,80 +285,92 @@ This design allows the reasoning layer to remain model-agnostic and extensible.
 
 \section*{Threat Reasoning Under Uncertainty}
 
-One of the most important lessons was that \textbf{missing data is normal}.
+A core design assumption of this system is that \textbf{missing and imperfect information is the norm rather than the exception}. 
+In this context, \textit{uncertainty} refers to incomplete aircraft specifications, low-confidence visual classifications, or limited external documentation.
 
-Specifications may be incomplete.
+Specifications may be partially unavailable.
 Classification confidence may be low.
-Some aircraft may be poorly documented.
+Some aircraft types may be poorly documented or ambiguously defined.
 
-Instead of failing, the threat reasoning module:
+Rather than failing or forcing deterministic outputs, the threat reasoning module is designed to operate explicitly under uncertainty. It:
 \begin{itemize}
-    \item Explicitly tracks uncertainty
-    \item Adjusts threat labels based on confidence
-    \item Emits explanatory summaries instead of raw scores
+    \item Tracks uncertainty originating from both visual classification confidence and missing specification fields
+    \item Adjusts threat assessments conservatively when confidence is low or information is incomplete
+    \item Produces human-readable explanatory summaries instead of opaque numerical scores
 \end{itemize}
 
-Threat levels are computed using interpretable heuristics such as speed, armament, and mission profile, not learned black-box scores.
+Threat levels are derived using interpretable, domain-informed heuristics such as aircraft speed, armament, and inferred mission profile, rather than learned black-box threat scores.
 
-Each assessment includes:
+Each threat assessment consists of:
 \begin{itemize}
-    \item Threat level
-    \item Human-readable summary
-    \item Uncertainty notes
+    \item A qualitative threat level
+    \item A natural-language summary explaining the assessment
+    \item Explicit uncertainty notes highlighting information gaps and confidence limitations
 \end{itemize}
 
-This mirrors how real analysts communicate risk.
+This presentation mirrors how human analysts communicate risk, emphasizing interpretability, caution, and transparency over false precision.
+This design prioritizes safe ambiguity over confident error in safety-critical decision contexts.
 
 \section*{Action Recommendation Layer}
 
-On top of threat assessment sits an action recommender. This layer does not issue commands; it suggests sensible next steps based on doctrine-inspired logic.
+The action recommendation layer operates on top of the threat assessment module. 
+Its role is to \textbf{suggest potential next steps}, not to issue commands or make decisions.
+In this context, an \textit{action recommendation} refers to a non-binding prompt intended to support human judgment.
 
-Recommendations are grouped into:
+This layer is strictly \textbf{ADVISORY ONLY} and does not override operator authority, rules of engagement, or command intent.
+
+Recommendations are generated using doctrine-inspired, interpretable logic and are grouped into:
 \begin{itemize}
-    \item Immediate actions
-    \item Short-term actions
-    \item Contingency preparations
+    \item Immediate actions (time-critical awareness and safety measures)
+    \item Short-term actions (resource allocation and posture adjustments)
+    \item Contingency preparations (planning for escalation or uncertainty)
 \end{itemize}
 
-For example, a high-confidence, high-threat identification may trigger suggestions such as continuous tracking, sensor fusion prioritization, or interceptor readiness.
+Suggested actions are conditioned on assessed threat level, classification confidence, and available specification data. 
+For example, a high-confidence, high-threat identification may result in recommendations such as continuous tracking, sensor fusion prioritization, or interceptor readiness.
+
+When confidence is low or information is incomplete, recommendations are deliberately conservative and emphasize information gathering over escalation.
+
+This design ensures the system functions as a decision-support aid, reinforcing situational awareness while preserving human control and accountability.
 \\
-\textbf{Code Used:}
+\textbf{Code Used for Action Recommendation is in the Appendix section}
 
-\begin{lstlisting}
-    def recommend_actions(threat_level, confidence):
-    """
-    Returns recommended actions based on threat level and confidence.
-    """
+\section*{Limitations}
 
-    actions = {
-        "immediate": [],
-        "short_term": [],
-        "contingency": []
-    }
+Despite its utility as a decision-support tool, this system has several inherent limitations that must be acknowledged. These limitations arise both from the nature of automated perception systems in operational settings and from constraints specific to the implementation presented in this work.
 
-    # --- Baseline monitoring ---
-    actions["immediate"].append("Maintain continuous tracking")
-    actions["immediate"].append("Cross-check with radar and IFF")
+\subsection*{General System Limitations}
 
-    if threat_level in ["Moderate", "High", "Severe"]:
-        actions["short_term"].append("Increase sensor fusion priority")
-        actions["short_term"].append("Assign interceptor-ready assets")
+\begin{itemize}
+    \item \textbf{Perceptual ambiguity:} Visual aircraft identification from a single image is inherently uncertain due to occlusion, viewing angle, lighting conditions, and visual similarity between aircraft families.
+    
+    \item \textbf{Data dependence:} Performance is fundamentally limited by the quality, diversity, and representativeness of available training data. Rare, classified, or newly introduced platforms may be misidentified or unrecognized.
+    
+    \item \textbf{Model uncertainty:} Confidence scores reflect statistical likelihood, not truth. High confidence does not guarantee correctness, and low confidence does not imply absence of threat.
+    
+    \item \textbf{Automation bias risk:} Even advisory systems may influence human judgment, particularly in time-sensitive environments, potentially biasing operators toward premature conclusions.
+    
+    \item \textbf{Lack of intent inference:} The system assesses capability, not intent. A highly capable aircraft does not necessarily pose an immediate threat, and intent must be inferred through additional contextual information.
+\end{itemize}
 
-    if threat_level in ["High", "Severe"]:
-        actions["short_term"].append("Elevate local alert posture")
-        actions["contingency"].append("Prepare escalation protocols")
+\subsection*{Limitations Specific to This Implementation}
 
-    if threat_level == "Severe":
-        actions["contingency"].append("Notify command authority")
-        actions["contingency"].append("Review rules of engagement")
+\begin{itemize}
+    \item \textbf{Limited training data:} The classifier was trained on a small, narrowly scoped dataset, resulting in reduced generalization performance and an overall classification accuracy of approximately 41\%.
+    
+    \item \textbf{Class imbalance and noise:} Certain aircraft classes contain limited or noisy samples, increasing the likelihood of misclassification and unstable confidence estimates.
+    
+    \item \textbf{Family-level confusion:} The model frequently confuses visually similar aircraft within the same design lineage (e.g., F-22 classified as F-15). While operationally informative, this reduces fine-grained identification reliability.
+    
+    \item \textbf{Incomplete specification coverage:} Aircraft specifications are derived from open-source material and may be incomplete, outdated, or inconsistent across platforms, leading to uncertainty in downstream threat reasoning.
+    
+    \item \textbf{Heuristic-based threat assessment:} Threat levels are computed using interpretable heuristics rather than learned intent models, which limits adaptability to novel operational contexts.
+    
+    \item \textbf{Single-frame inference:} The system operates on individual images and does not incorporate temporal tracking, multi-sensor fusion, or contextual battlefield information.
+\end{itemize}
 
-    # --- Confidence modifier ---
-    if confidence < 0.5:
-        actions["immediate"].append("Revalidate classification with additional sensors")
+These limitations reinforce the necessity of human oversight and contextual reasoning. The system is best understood as an assistive analytical tool rather than an autonomous decision-maker.
 
-    return actions
-
-\end{lstlisting}
 
 \section*{Why This Matters}
 
@@ -384,10 +414,65 @@ The integration of an automated identification and threat assessment system intr
     \item \textbf{The Fallibility Principle:} All automated systems are fallible. Therefore, the system must be designed strictly as a \textbf{decision-support tool}—a guiding hand that provides critical information without usurping the commander's ultimate responsibility. The human must remain firmly \textbf{in the decision loop} and \textbf{at the helm}.
 \end{itemize}
 
+\section*{Conclusion}
+
+This work presented an end-to-end aircraft identification and threat assessment pipeline designed to assist time-constrained decision-making in operational settings. By decoupling visual perception from domain knowledge, the system first classifies an observed aircraft and then reasons about its capabilities, threat level, and appropriate advisory actions using a structured specification database.
+
+Rather than optimizing solely for classification accuracy, the system emphasizes interpretability, uncertainty awareness, and human-centric outputs. Classification confidence is explicitly propagated through downstream reasoning, incomplete specifications are handled gracefully, and threat assessments are expressed in explanatory summaries instead of opaque scores. This mirrors how real analysts communicate risk under uncertainty.
+
+Experimental results demonstrate that while fine-grained identification accuracy is limited by data availability and class ambiguity, family-level recognition and capability inference remain operationally useful. Misclassifications between visually similar aircraft, such as within the same design lineage, still yield meaningful threat assessments, reinforcing the value of reasoning beyond the vision model alone.
+
+Crucially, the system is designed as an advisory aid rather than an autonomous decision-maker. It does not infer intent, issue commands, or replace human judgment. Instead, it provides structured, confidence-aware guidance that can reduce cognitive load while preserving operator responsibility.
+
+Overall, this project highlights that effective decision-support systems in safety-critical domains depend not only on model performance, but on transparency, uncertainty handling, and principled integration with human workflows. These considerations are essential for deploying AI systems responsibly in real-world operational environments.
+
+
 \section*{Closing Thoughts}
 
-Building this system required as much systems thinking as machine learning. Most of the work happened not in improving accuracy, but in making failures understandable and outputs actionable.
+Beyond the technical results, this project highlighted the importance of systems-level thinking when deploying machine learning in safety-critical contexts.
 
-That, more than any metric, was the real objective.
+
+\appendix
+\section{Appendix}
+
+\begin{lstlisting}
+    def recommend_actions(threat_level, confidence):
+    """
+    Returns recommended actions based on threat level and confidence.
+    """
+
+    actions = {
+        "immediate": [],
+        "short_term": [],
+        "contingency": []
+    }
+
+    # --- Baseline monitoring ---
+    actions["immediate"].append("Maintain continuous tracking")
+    actions["immediate"].append("Cross-check with radar and IFF")
+
+    if threat_level in ["Moderate", "High", "Severe"]:
+        actions["short_term"].append("Increase sensor fusion priority")
+        actions["short_term"].append("Assign interceptor-ready assets")
+
+    if threat_level in ["High", "Severe"]:
+        actions["short_term"].append("Elevate local alert posture")
+        actions["contingency"].append("Prepare escalation protocols")
+
+    if threat_level == "Severe":
+        actions["contingency"].append("Notify command authority")
+        actions["contingency"].append("Review rules of engagement")
+
+    # --- Confidence modifier ---
+    if confidence < 0.5:
+        actions["immediate"].append("Revalidate classification with additional sensors")
+
+    return actions
+
+\end{lstlisting}
+
+\colorbox{yellow}{The complete code can be found in my github repository.}\\
+% \hl{.} 
+\textbf{Link: \url{https://github.com/JeevanLowrence/LYFT}}
 
 \end{document}
