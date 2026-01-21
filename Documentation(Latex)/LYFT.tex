@@ -8,6 +8,18 @@
 \usepackage{caption}
 \usepackage{enumitem}
 
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{teal},
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    tabsize=2
+}
+
 \setstretch{1.15}
 
 \title{\textbf{From Image Classification to Threat Reasoning:}\\
@@ -230,19 +242,28 @@ For each aircraft:
     \item Capabilities are expressed as boolean flags
 \end{itemize}
 
-Example capability flags include:
-\begin{itemize}
-    \item Beyond-visual-range combat
-    \item Strike capability
-    \item Electronic warfare
-    \item Stealth
-\end{itemize}
+% Example capability flags include:
+% \begin{itemize}
+%     \item Beyond-visual-range combat
+%     \item Strike capability
+%     \item Electronic warfare
+%     \item Stealth
+% \end{itemize}
 
 This design allows the reasoning layer to remain model-agnostic and extensible.
 
 \vspace{0.5em}
 \noindent
-\textbf{[Placeholder: Example YAML specification snippet]}
+% \newpage
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/yaml_prompt.png}
+    \caption{Ollama Prompt for YAML}
+    \label{fig:yaml}
+\end{figure}
+
+\newpage
 
 \section*{Threat Reasoning Under Uncertainty}
 
@@ -282,18 +303,44 @@ Recommendations are grouped into:
 \end{itemize}
 
 For example, a high-confidence, high-threat identification may trigger suggestions such as continuous tracking, sensor fusion prioritization, or interceptor readiness.
+\\
+\textbf{Code Used:}
 
-\section*{Engineering Pitfalls and Fixes}
+\begin{lstlisting}
+    def recommend_actions(threat_level, confidence):
+    """
+    Returns recommended actions based on threat level and confidence.
+    """
 
-Several non-obvious issues emerged:
-\begin{itemize}
-    \item Multiprocessing failures on Windows due to missing \texttt{\_\_main\_\_} guards
-    \item Model checkpoint incompatibility after class removal
-    \item KeyErrors from mismatched dictionary contracts between modules
-    \item NoneType propagation from partially populated specs
-\end{itemize}
+    actions = {
+        "immediate": [],
+        "short_term": [],
+        "contingency": []
+    }
 
-Each fix reinforced the importance of stable interfaces and defensive programming in multi-module systems.
+    # --- Baseline monitoring ---
+    actions["immediate"].append("Maintain continuous tracking")
+    actions["immediate"].append("Cross-check with radar and IFF")
+
+    if threat_level in ["Moderate", "High", "Severe"]:
+        actions["short_term"].append("Increase sensor fusion priority")
+        actions["short_term"].append("Assign interceptor-ready assets")
+
+    if threat_level in ["High", "Severe"]:
+        actions["short_term"].append("Elevate local alert posture")
+        actions["contingency"].append("Prepare escalation protocols")
+
+    if threat_level == "Severe":
+        actions["contingency"].append("Notify command authority")
+        actions["contingency"].append("Review rules of engagement")
+
+    # --- Confidence modifier ---
+    if confidence < 0.5:
+        actions["immediate"].append("Revalidate classification with additional sensors")
+
+    return actions
+
+\end{lstlisting}
 
 \section*{Why This Matters}
 
@@ -311,11 +358,30 @@ The final system behaves less like a classifier and more like a junior analyst: 
 \section*{Next Steps}
 
 Potential future extensions include:
+
 \begin{itemize}
-    \item Temporal tracking across multiple frames
-    \item Multi-aircraft fusion
-    \item Rules-of-engagement-aware recommendations
-    \item Confidence-calibrated decision thresholds
+    \item \textbf{Temporal tracking across multiple frames:}  
+    Extending the system from single-image inference to temporal analysis would enable persistent tracking of aircraft across consecutive frames or sensor updates. This would allow the system to reason about motion patterns, trajectory changes, loitering behavior, and intent inference, reducing susceptibility to transient misclassifications and improving confidence stability over time.
+
+    \item \textbf{Multi-aircraft fusion:}  
+    Supporting simultaneous detection and reasoning over multiple aircraft would allow the system to assess coordinated behavior, formation flying, and swarm-like activity. This is particularly relevant in contested airspace, where threat assessment depends not only on individual platforms but also on collective behavior and relative positioning.
+
+    \item \textbf{Rules-of-engagement-aware recommendations:}  
+    Integrating configurable rules of engagement (ROE) using Retrieval Augmented Generation (RAG) systems would constrain threat assessments and action recommendations within predefined operational, legal, and political boundaries. This ensures that system outputs remain aligned with mission-specific doctrine and reduces the risk of inappropriate escalation suggestions.
+
+    \item \textbf{Confidence-calibrated decision thresholds:}  
+    Incorporating calibrated confidence thresholds would allow the system to explicitly modulate its outputs based on uncertainty. Low-confidence classifications could trigger conservative recommendations or defer judgment, while high-confidence assessments could enable stronger advisory signals, reinforcing appropriate caution in ambiguous scenarios.
+\end{itemize}
+
+\section*{Ethical Implications}
+The integration of an automated identification and threat assessment system introduces significant ethical considerations centered on human judgment and accountability.
+
+\begin{itemize}
+    \item \textbf{Automation Bias and Conformity:} Presenting a system-generated assessment creates \textbf{automation bias}, predisposing operators to conform to its suggestions. This can lead toward either unwarranted escalation or passive acceptance of potentially inaccurate judgments. This risk is amplified by the tendency of LLM-based components to align with user input, potentially reinforcing pre-existing biases rather than providing a neutral evaluation.
+
+    \item \textbf{Desensitization and Decision Pressure:} Automating the threat-response loop can desensitize commanding officers to the gravity of their decisions, placing them under intense pressure to make rapid, system-validated calls. This environment risks eroding the crucial \textbf{tacit knowledge} and \textbf{command intuition} developed through experience.
+
+    \item \textbf{The Fallibility Principle:} All automated systems are fallible. Therefore, the system must be designed strictly as a \textbf{decision-support tool}—a guiding hand that provides critical information without usurping the commander's ultimate responsibility. The human must remain firmly \textbf{in the decision loop} and \textbf{at the helm}.
 \end{itemize}
 
 \section*{Closing Thoughts}

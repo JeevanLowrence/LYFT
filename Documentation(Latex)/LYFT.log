@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.3.5)  19 JAN 2026 01:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.3.5)  21 JAN 2026 20:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -224,24 +224,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 ) (LYFT.aux)
 \openout1 = `LYFT.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -277,7 +277,7 @@ LaTeX Font Info:    ... okay on input line 19.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 19.
+Package hyperref Info: Link coloring OFF on input line 31.
 (LYFT.out) (LYFT.out)
 \@outlinefile=\write3
 \openout3 = `LYFT.out'.
@@ -305,11 +305,11 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 21.
+(Font)              <12> on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 21.
+(Font)              <8> on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 21.
+(Font)              <6> on input line 33.
 
 
 LaTeX Warning: No \author given.
@@ -317,7 +317,7 @@ LaTeX Warning: No \author given.
 <images/LYFT_logo.png, id=3, 1541.76pt x 1027.84pt>
 File: images/LYFT_logo.png Graphic file (type png)
 <use images/LYFT_logo.png>
-Package pdftex.def Info: images/LYFT_logo.png  used on input line 24.
+Package pdftex.def Info: images/LYFT_logo.png  used on input line 36.
 (pdftex.def)             Requested size: 362.37569pt x 241.57379pt.
 [1
 
@@ -325,16 +325,16 @@ Package pdftex.def Info: images/LYFT_logo.png  used on input line 24.
 <images/pipeline.png, id=17, 1541.76pt x 1027.84pt>
 File: images/pipeline.png Graphic file (type png)
 <use images/pipeline.png>
-Package pdftex.def Info: images/pipeline.png  used on input line 64.
+Package pdftex.def Info: images/pipeline.png  used on input line 76.
 (pdftex.def)             Requested size: 362.37569pt x 241.57379pt.
  [2 <./images/pipeline.png (PNG copy)>] [3] [4]
 <images/confusion_matrix.png, id=39, 1300.86pt x 1156.32pt>
 File: images/confusion_matrix.png Graphic file (type png)
 <use images/confusion_matrix.png>
-Package pdftex.def Info: images/confusion_matrix.png  used on input line 184.
+Package pdftex.def Info: images/confusion_matrix.png  used on input line 196.
 (pdftex.def)             Requested size: 588.85963pt x 523.44453pt.
 
-Overfull \hbox (135.89174pt too wide) in paragraph at lines 184--185
+Overfull \hbox (135.89174pt too wide) in paragraph at lines 196--197
  [][] 
  []
 
@@ -342,14 +342,25 @@ Overfull \hbox (135.89174pt too wide) in paragraph at lines 184--185
 <images/output.png, id=47, 1152.55594pt x 321.45094pt>
 File: images/output.png Graphic file (type png)
 <use images/output.png>
-Package pdftex.def Info: images/output.png  used on input line 195.
+Package pdftex.def Info: images/output.png  used on input line 207.
 (pdftex.def)             Requested size: 588.85963pt x 164.24191pt.
 
-Overfull \hbox (135.89174pt too wide) in paragraph at lines 195--196
+Overfull \hbox (135.89174pt too wide) in paragraph at lines 207--208
  [][] 
  []
 
-[6 <./images/output.png>] [7] [8] (LYFT.aux)
+[6 <./images/output.png>]
+<images/yaml_prompt.png, id=57, 467.49657pt x 650.43pt>
+File: images/yaml_prompt.png Graphic file (type png)
+<use images/yaml_prompt.png>
+Package pdftex.def Info: images/yaml_prompt.png  used on input line 261.
+(pdftex.def)             Requested size: 362.37569pt x 504.19713pt.
+ [7 <./images/yaml_prompt.png>] [8] [9]
+Overfull \hbox (10.09885pt too wide) in paragraph at lines 372--374
+[]\OT1/cmr/bx/n/10.95 Confidence-calibrated de-ci-sion thresh-olds: \OT1/cmr/m/n/10.95 In-cor-po-rat-ing cal-i-brated con-fi-dence thresh-
+ []
+
+[10] (LYFT.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -358,17 +369,17 @@ Package rerunfilecheck Info: File `LYFT.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11949 strings out of 474486
- 192626 string characters out of 5743756
- 1936542 words of memory out of 5000000
- 34097 multiletter control sequences out of 15000+600000
- 563479 words of font info for 54 fonts, out of 8000000 for 9000
+ 12255 strings out of 474486
+ 195391 string characters out of 5743756
+ 2066542 words of memory out of 5000000
+ 34367 multiletter control sequences out of 15000+600000
+ 563647 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,399b,678s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\fkshi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on LYFT.pdf (8 pages, 1886300 bytes).
+ 75i,6n,79p,572b,1938s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\fkshi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/fkshi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on LYFT.pdf (10 pages, 1934680 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 31 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 168 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

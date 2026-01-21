@@ -171,6 +171,14 @@ INPUT .\images\output.png
 INPUT .\images\output.png
 INPUT .\images\output.png
 INPUT .\images\output.png
+INPUT .\images\yaml_prompt.png
+INPUT .\images\yaml_prompt.png
+INPUT .\images\yaml_prompt.png
+INPUT .\images\yaml_prompt.png
+INPUT .\images\yaml_prompt.png
+INPUT .\images\yaml_prompt.png
+INPUT .\images\yaml_prompt.png
+INPUT C:\Users\fkshi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
 INPUT C:\Users\fkshi\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
 INPUT LYFT.aux
 INPUT .\LYFT.out
@@ -185,6 +193,8 @@ INPUT C:\Users\fkshi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\fkshi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\fkshi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
 INPUT C:\Users\fkshi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
+INPUT C:\Users\fkshi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
+INPUT C:\Users\fkshi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
 INPUT C:\Users\fkshi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Users\fkshi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Users\fkshi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
